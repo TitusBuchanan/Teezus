@@ -1,21 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
-<h1>Titus Git Repo</h1>
-<h2>by:Titus Buchanan</h2>
+    <h1>Practicing Html DropDowns And Techniques</h1>
+    <h2>Using NFL teams to help deonstrate this</h2>
+    <h3>By:Titus Buchanan</h3>
+
+    <div id="dropDown"></div>
+    <div id="nflDropDown"></div>
+    <button type="button" onclick="nflTeams.pickTeams()">Pick Your Team</button>
+
+    <script>
+        var nflTeams = {
+            leagueCategories: ["AFC East", "AFC North", "AFC West", "ACF South", "NFC East", "NFC North", "NFC South", "NFC West"],
+            teamCategories: [["New England Patriots", "New York Jets", "Buffalo Bills", "Miami Dolphins"], ["Cinncinati Bengals", "Pittsbugh Steelers", "Cleveland Browns", "Baltimore Ravens"], ["Los Angeles Chargers", "Oakland Raiders", "Kansas City Chiefs", "Denver Broncos"], ["Indianpolis Colts", "Tennessee Titans", "Jacksonville Jaguars", "Houston Texans"], ["Dallas Cowboys", "New York Giants", "Washington Redskins", "Philidalphia Eagles"], ["Green Bay Packers", "Minnesota Vikings", "Chicago Bears", "Detroit Lions"], ["Atlanta Falcons", "New Orleans Saints", "Tampa Bay Bucaneers", "Carolina Panthers"], ["Los Angeles Rams", "Seattle Seahawks", "San Fransisco 49ers", "Arizona Cardinals"]],
+            nflPick: [ [], [], [], [], [], [], [], [] ],
+
+            listTeams: function () {
+                var nflTeamDropDown = "<select id = 'teamDropDownList'>";
+                for (var i = 0; i < this.teamCategories.length; i++) {
+                    nflTeamDropDown += "<optgroup label = '" + this.leagueCategories[i] + "'>";
+                    for (var j = 0; j < this.teamCategories[i].length; j++) {
+                        nflTeamDropDown += "<option>" + this.teamCategories[i][j] + "</option>";
+                    }
+                    nflTeamDropDown += "</optgroup>";
+                }
+                nflTeamDropDown += "</select>";
+                document.getElementById("dropDown").innerHTML = nflTeamDropDown
+            },
+            pickTeams: function () {
+                var selectedTeam = document.getElementById("teamDropDownList").value;
+                for (var i = 0; i < this.teamCategories.length; i++) {
+                    for (var j = 0; j < this.teamCategories.length; j++) {
+                        if (selectedTeam == this.teamCategories[i][j]) {
+                            this.nflPick[i].push(this.teamCategories[i].splice(j, 1))
+                        }
+                    }
+                }
+                this.listTeams();
+                this.nflTeamList();
+            },
+            nflTeamList: function () {
+                var nflListDropDown = "<select id = 'nflRoster'>";
+                for (var i = 0; i < this.nflPick.length; i++) {
+                    nflListDropDown += "<optgroup label = '" + this.leagueCategories[i] + "'>";
+                    for (var j = 0; j < this.nflPick[i].length; j++) {
+                        nflListDropDown += "<option>" + this.nflPick[i][j] + "</option>";
+
+
+                    }
+                    nflListDropDown += "</optgroup>";
+                }
+                nflListDropDown += "</select>";
+                document.getElementById("nflDropDown").innerHTML = nflListDropDown;
+            }
+
+
+        }
 
 
 
 
+        nflTeams.listTeams();
+        nflTeams.nflTeamList();
 
+    </script>
 
 
 </body>
+
 </html>
