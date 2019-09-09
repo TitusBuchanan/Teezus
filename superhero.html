@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Make Your Own Dream Team</h1>
+    <h3>Choose Your Hero</h3>
+
+    <div id="roster"></div>
+    <div id = "dreamTeamRoster"></div>
+
+    <button type="button" onclick="heroes.pickHero()">Pick A Hero</button>
+    <script>
+        var heroes = {
+            teamNames: ["GOTG", "Avengers", "Sorcerors", "A-Force"],
+            heroNames: [["Star-Lord", "Rocket Raccoon", "Groot", "Drax", "Mantis", "Gamora"], ["Thor", "Hulk", "Iron Man", "Captain America", "Hawkeye", "Black Widow"], ["Dr.Strange", "Wong"], ["Valkerie", "Captain Marvel", "Scarlet Witch", "Rescue"]],
+            dreamTeam: [[], [], [], []],
+
+            heroList: function () {
+                var heroListDropDown = "<select id = 'teamList'>";
+                for (var i = 0; i < this.heroNames.length; i++) {
+                    heroListDropDown += "<optgroup label = '" + this.teamNames[i] + "'>";
+                    for (var j = 0; j < this.heroNames[i].length; j++) {
+                        heroListDropDown += "<option>" + this.heroNames[i][j] + "</option>"
+
+
+                    }
+                    heroListDropDown += "</optgroup>"
+
+                }
+                heroListDropDown += "</select>";
+                document.getElementById("roster").innerHTML = heroListDropDown
+            },
+            pickHero: function () {
+                var selectedHero = document.getElementById("teamList").value;
+                for (var i = 0; i < this.heroNames.length; i++) {
+                    for (var j = 0; j < this.heroNames.length; j++) {
+                        if (selectedHero == this.heroNames[i][j]) {
+                            this.dreamTeam[i].push(this.heroNames[i].splice(j, 1))
+                        }
+                    }
+                }
+                this.heroList();
+                this.dreamTeamList();
+            },
+            dreamTeamList: function () {
+                var dreamTeamDropDown = "<select id='dreamTeamList'>";
+                        for (var i = 0; i < this.dreamTeam.length; i++) {
+                    dreamTeamDropDown += "<optgroup label = '" + this.teamNames[i] + "'>";
+                    for (var j = 0; j < this.dreamTeam[i].length; j++) {
+                        dreamTeamDropDown += "<option>" + this.dreamTeam[i][j] + "</option>";
+
+
+                    }
+                    dreamTeamDropDown += "</optgroup>";
+
+                }
+                dreamTeamDropDown += "</select>";
+                document.getElementById("dreamTeamRoster").innerHTML = dreamTeamDropDown;
+
+            }
+
+        }
+        heroes.heroList();
+        heroes.dreamTeamList();
+
+    </script>
+</body>
+
+</html>
