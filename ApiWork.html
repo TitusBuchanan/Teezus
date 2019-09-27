@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<form>
+    Stock: <input type id="Money" name="finance"><br>
+</form>
+
+<button id="button">Press For Finacial Analysis</button>
+
+<div id="text">
+
+</div>
+
+<body>
+    <script>
+        document.getElementById('button').addEventListener('click', loadText)
+
+        function loadText() {
+            var xhr = new XMLHttpRequest();
+            
+            var stockName = document.getElementById('Money').value
+            xhr.open('GET','https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=YIK4QYUJC0D61A1L',true)
+           
+            xhr.onload = function(){
+             if(this.status == 200){
+                 console.log(xhr.responseText);
+              } else {
+                  console.log('You Screwed Up Somewhere')
+             }
+            }
+           
+
+            xhr.send();
+        }
+
+    </script>
+
+</body>
+
+</html>
