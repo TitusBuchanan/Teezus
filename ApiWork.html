@@ -25,7 +25,7 @@
             var xhr = new XMLHttpRequest();
             
             var stockName = document.getElementById('Money').value
-            xhr.open('GET','https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=BA&apikey=YIK4QYUJC0D61A1L',true)
+            xhr.open('GET','https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=' ,true)
            
             xhr.onload = function(){
              if(this.status == 200){
