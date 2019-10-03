@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html>
+
+
+<head>
+
+    <style>
+        .language {
+            color: palevioletred;
+        }
+
+        .markup {
+            color: mediumaquamarine;
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <div>
+        <h1 id="title">Welcome to the DOM Hotel</h1>
+    </div>
+    <h4 id="subTitle">Enjoy the finer elements of style</h4>
+    <h6 id="author">By:Titus Buchanan</h6>
+    <p class="text">The following rooms are available:</p>
+    <div id="roomsAvailable">
+        <select>
+            <option>101</option>
+            <option>102</option>
+            <option>103</option>
+            <option>104</option>
+        </select>
+    </div>
+    <button type="button" onclick="domHotel.listAvailableRooms()">Book a Room</button>
+
+    <p class="text">Learn about such thing as:</p>
+    <p class="markup">HTML</p>
+    <p class="markup">CSS</p>
+    <p class="language">Javascript</p>
+    <p class="language">React</p>
+    <p class="concept">Algorithms</p>
+    <p class="concept">Problem Solving</p>
+
+    <script>
+        var domHotel = {
+            roomTypes: ["single", "double", "king", "queen"],
+            availableRooms: [[101, 102, 103], [201, 202, 203], [301, 302], [601]],
+            listAvailableRooms: function () {
+                var listOfRooms = "<select id = 'selected room'>";;
+                for (var i = 0; i < this.availableRooms.length; i++) {
+                    for (var j = 0; j < this.availableRooms[i].length; j++) {
+                        listOfRooms += "<option>" + this.availableRooms[i][j] + "</option>";
+                    }
+
+                }
+                listOfRooms += "</select>"
+                document.getElementById("roomsAvailable").innerHTML
+                    = listOfRooms;
+            },
+          
+        }
+
+
+
+
+
+        domHotel.listAvailableRooms();
+    </script>
+</body>
+
+</html>
+
+
+</doctype>
