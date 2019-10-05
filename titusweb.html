@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="newstyle.css" rel="stylesheet" />
+	<title>Teezy HYPE</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header>
+			<div id="page-banner">
+				<h1 class="title">Teezy's Hype Picks</h1>
+				<p>Hype for HypeBeasts</p>
+				<a href="https://www.instagram.com/prettymofotitus/?hl=en">Click Here For Teezus</a>
+				<form id="search-books">
+					<input type="text" placeholder="Search Hype..." />
+				</form>
+			</div>
+			<div id="dropDown"></div>
+			<div id="hypeDropDown"></div>
+			<button type="button" onclick="nflTeams.pickTeams()">Pick Your Hype</button>
+
+		</header>
+		<div id="book-list">
+			<h2 class="title">Teezus' HypeBeast Picks</h2>
+			<ul>
+				<li>
+					<span class="name">Yeezy 350's</span>
+					<span class="delete">delete</span>
+				</li>
+				<li>
+					<span class="name">GeoBaskets</span>
+					<span class="delete">delete</span>
+				</li>
+				<li>
+					<span class="name">Dior Runners</span>
+					<span class="delete">delete</span>
+				</li>
+				<li>
+					<span class="name">Louis Vuitton Millionare 1.1's</span>
+					<span class="delete">delete</span>
+				</li>
+			</ul>
+		</div>
+		<form id="add-book">
+			<input type="checkbox" id="hide" />
+			<label for="hide">Deselect All Hype Material</label>
+			<input type="text" placeholder="Create Hype..." />
+			<button>Add</button>
+		</form>
+		<div id="tabbed-content">
+			<ul class="tabs">
+				<li data-target="#about" class="active">About</li>
+				<li data-target="#contact">Contact</li>
+			</ul>
+			<div class="panel active" id="about">
+				<p>About Teezus...</p>
+				<p>Wouldn't you like to know</p>
+			</div>
+			<div class="panel" id="contact">
+				<p>How to reach TEEZUS...</p>
+				<p>Slide in those DM's on INSTA</p>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="new.js"></script>
+</body>
+
+</html>
