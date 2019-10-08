@@ -14,6 +14,8 @@ console.log(availableRooms);
 
 var teezusMethod = {
     age:27,
-    homeTown:[["Roselle,NJ"],["Providence,RI"]],
+    homeTown:[["Roselle,NJ"],["Providence,RI"],["North Kingstown,RI"]],
     
 }
+
+
